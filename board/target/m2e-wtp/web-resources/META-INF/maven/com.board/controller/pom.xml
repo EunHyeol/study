@@ -123,7 +123,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -169,7 +169,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.3.5.RELEASE</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
