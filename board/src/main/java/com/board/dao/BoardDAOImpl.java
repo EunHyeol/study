@@ -1,5 +1,7 @@
 package com.board.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -16,6 +18,11 @@ public class BoardDAOImpl implements BoardDAO{
 	public void write(BoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		sqlSession.insert("boardMapper.insert", vo);
+	}
+	@Override
+	public List<BoardVO> list() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("boardMapper.list");
 	}
 	
 	

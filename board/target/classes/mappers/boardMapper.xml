@@ -9,4 +9,9 @@
 		VALUES( #{bno}, #{title}, #{content}, #{writer} )
 
 	</insert>
+	
+	<select id="list" resultType="com.board.vo.BoardVO">
+		select bno, title, writer,regdate from boardtable
+		order by bno desc
+	</select>
 </mapper>
