@@ -19,10 +19,17 @@ public class BoardDAOImpl implements BoardDAO{
 		// TODO Auto-generated method stub
 		sqlSession.insert("boardMapper.insert", vo);
 	}
+	//게시글 목록
 	@Override
 	public List<BoardVO> list() throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("boardMapper.list");
+	}
+	//게시글 조회
+	@Override
+	public BoardVO read(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("boardMapper.read",bno);
 	}
 	
 	
