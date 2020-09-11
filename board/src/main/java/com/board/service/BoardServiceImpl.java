@@ -13,7 +13,7 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO dao;
 
 	@Override
-	public void writer(BoardVO vo) throws Exception {
+	public void write(BoardVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		dao.write(vo);
 	}

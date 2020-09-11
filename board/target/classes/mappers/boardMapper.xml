@@ -5,14 +5,8 @@
 <mapper namespace="boardMapper">
 	<!-- 게시판 글 작성 -->
 	<insert id="insert">
-		INSERT INTO MP_BOARD( bno
-		, title
-		, content
-		, writer )
-		VALUES( #{bno}
-		, #{title}
-		, #{content}
-		, #{writer} )
+		INSERT INTO boardtable(bno, title, content, writer )
+		VALUES( #{bno}, #{title}, #{content}, #{writer} )
 
 	</insert>
 </mapper>
