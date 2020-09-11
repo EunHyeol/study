@@ -31,7 +31,7 @@ public class BoardController {
 	public String write(BoardVO vo) throws Exception{
 		logger.info("write");
 		service.write(vo);
-		return "redirect:/";
+		return "redirect:/board/list";
 	}
 	
 	//게시판 목록 조회
@@ -49,4 +49,29 @@ public class BoardController {
 		model.addAttribute("read", service.read(vo.getBno()));
 		return "board/readView";
 	}
+	
+	//게시판 수정뷰
+	@RequestMapping(value = "/updateView", method=RequestMethod.GET)
+	public String updateView(BoardVO vo, Model model) throws Exception{
+		logger.info("updateView");
+		model.addAttribute("update", service.read(vo.getBno()));
+		return "/boad/updateView";
+	}
+	
+	//게시판 수정
+	@RequestMapping(value = "/update", method=RequestMethod.POST)
+	public String update(BoardVO vo) throws Exception{
+		logger.info("update");
+		service.update(vo);
+		return "redirect:/board/list";
+	}
+	
+	//게시판 삭제
+	@RequestMapping(value = "/delete", method=RequestMethod.POST)
+	public String delete(BoardVO vo) throws Exception{
+		logger.info("delete");
+		service.delete(vo.getBno());
+		return "redirect:/board/list";
+	}
+	
 }

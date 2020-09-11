@@ -31,5 +31,17 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		return dao.read(bno);
 	}
+	//게시물 수정
+	@Override
+	public void update(BoardVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.update(vo);
+	}
+	//게시물 삭제
+	@Override
+	public void delete(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		dao.delete(bno);
+	}
 	
 }

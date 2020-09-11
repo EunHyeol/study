@@ -21,4 +21,14 @@
 		where bno = #{bno}
 	</select>
 	
+	<!-- 게시물 수정 -->
+	<update id="update" parameterType="com.board.vo.BoardVO">
+		update boardtable set title=#{title},content=#{content} where bno=#{bno}
+	</update>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from boardtable where bno=#{bno}
+	</delete>
+	
 </mapper>
