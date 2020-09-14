@@ -38,7 +38,7 @@ public class BoardController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model) throws Exception{
 		logger.info("list");
-		model.addAttribute("list",service.list());
+		model.addAttribute("list",service.list());		
 		return "board/list";
 	}
 	

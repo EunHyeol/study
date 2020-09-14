@@ -24,13 +24,13 @@
 				<table>
 					<tr><th>번호</th><th>제목</th><th>작성자</th><th>등록일</th></tr>
 						
-					<c:forEach items="${list}" var = "list">
+					<c:forEach items="${list}" var ="list">
 						<tr>
 							<td><c:out value="${list.bno}" /></td>
 							<td>
 								<a href="/board/readView?bno=${list.bno}"><c:out value="${list.title}" /></a>
 							</td>
-							<td><c:out value="${list.writer}" /></td>
+							<td>${list.writer}</td>
 							<td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd"/></td>
 						</tr>
 					</c:forEach>
