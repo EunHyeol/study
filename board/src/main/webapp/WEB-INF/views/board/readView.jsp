@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <title>게시판</title>
 </head>
@@ -20,9 +21,12 @@
 		})
 		//삭제
 		$(".delete_btn").on("click", function() {
-			formObj.attr("action", "/board/delete");
-			formObj.attr("method", "post");
-			formObj.submit();
+			var deleteYN = confirm("삭제하시겠습니까?");
+			if (deleteYN == true) {
+				formObj.attr("action", "/board/delete");
+				formObj.attr("method", "post");
+				formObj.submit();
+			}
 		})
 
 		//취소
@@ -38,7 +42,9 @@
 		</header>
 		<hr />
 
-		<nav>홈 - 글 작성</nav>
+		<div>
+			<%@include file="nav.jsp"%>
+		</div>
 		<hr />
 
 		<section id="container">
@@ -48,24 +54,23 @@
 			<table>
 				<tbody>
 					<tr>
-						<td>
-							<label for="title">제목</label><input type="text" id="title" name="title" value="${read.title}" readonly="readonly" />
+						<td><label for="title">제목</label><input type="text"
+							id="title" name="title" value="${read.title}" readonly="readonly" />
 						</td>
 					</tr>
 					<tr>
-						<td>
-							<label for="content">내용</label> <textarea id="content" name="content" readonly="readonly"><c:out value="${read.content}" /></textarea>
-						</td>
+						<td><label for="content">내용</label> <textarea id="content"
+								name="content" readonly="readonly"><c:out
+									value="${read.content}" /></textarea></td>
 					</tr>
 					<tr>
-						<td>
-							<label for="writer">작성자</label><input type="text" id="writer" name="writer" value="${read.writer}" readonly="readonly" />
-						</td>
+						<td><label for="writer">작성자</label><input type="text"
+							id="writer" name="writer" value="${read.writer}"
+							readonly="readonly" /></td>
 					</tr>
 					<tr>
-						<td>
-							<label for="regdate">작성날짜</label> <fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd" />
-						</td>
+						<td><label for="regdate">작성날짜</label> <fmt:formatDate
+								value="${read.regdate}" pattern="yyyy-MM-dd" /></td>
 					</tr>
 				</tbody>
 			</table>

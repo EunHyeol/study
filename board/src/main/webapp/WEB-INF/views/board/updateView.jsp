@@ -15,7 +15,26 @@
 			event.preventDefault();
 			location.href = "/board/list";
 		})
+		
+		$(".update_btn").on("click", function(){
+			if(fn_valiChk()){
+				reurn false;	
+			}
+			formObj.attr("action","/board/update");
+			formObj.attr("method","post");
+			formObj.submit();
+		})
 	})
+	
+	function fn_valiChk(){
+		var updateForm = $("form[name='updateForm'].chk").length;
+		for(var i=0;i<updateForm;i++){
+			if($(".chk").eq(i).val() == "" || $(".chk").eq(i).val() == null){
+				alert($(".chk").eq(i).attr("title"));
+				return true;
+			}
+		}
+	}
 
 </script>
 <body>
@@ -26,7 +45,9 @@
 		</header>
 		<hr />
 
-		<nav>홈 - 글 작성</nav>
+		<div>
+			<%@include file="nav.jsp" %>
+		</div>
 		<hr />
 
 		<section id="container">
