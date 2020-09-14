@@ -55,7 +55,7 @@ public class BoardController {
 	public String updateView(BoardVO vo, Model model) throws Exception{
 		logger.info("updateView");
 		model.addAttribute("update", service.read(vo.getBno()));
-		return "/boad/updateView";
+		return "/board/updateView";
 	}
 	
 	//게시판 수정
