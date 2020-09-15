@@ -34,7 +34,7 @@
 			location.href = "/board/list";
 		})
 		//목록
-		$()".list_btn").on("click", function(){
+		$(".list_btn").on("click", function(){
 			location.href="/board/list?page=${scri.page}"+"&perPageNum=${scri.perPageNum}"+"&searchType=${scri.searchType}&keyword=${scri.keyword}";
 		})
 	})
@@ -83,9 +83,24 @@
 				</tbody>
 			</table>
 			<div>
-				<button type="submit" class="update_btn">수정</button>
-				<button type="submit" class="delete_btn">삭제</button>
-				<button type="submit" class="list_btn">목록</button>
+				<button type="button" class="update_btn">수정</button>
+				<button type="button" class="delete_btn">삭제</button>
+				<button type="button" class="list_btn">목록</button>
+			</div>
+			
+			<!-- 댓글 -->
+			<div id="reply">
+				<ol class="replyList">
+					<c:forEach items="${replyList}" var="replyList">
+						<li>
+							<p>
+							작성자 : ${replyList.writer}<br />
+							작성날짜 : <fmt:formatDate value="${replyList.regdate}" pattern="yyyy-MM-dd"/>
+							</p>
+							<p>${replyList.content}</p>
+						</li>
+					</c:forEach>
+				</ol>
 			</div>
 		</section>
 		<hr />

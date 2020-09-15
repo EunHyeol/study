@@ -1,5 +1,7 @@
 package com.board.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -12,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.board.service.BoardService;
+import com.board.service.ReplyService;
 import com.board.vo.BoardVO;
 import com.board.vo.Criteria;
 import com.board.vo.PageMaker;
+import com.board.vo.ReplyVO;
 import com.board.vo.SearchCriteria;
 
 @Controller
@@ -25,6 +29,10 @@ public class BoardController {
 	
 	@Inject
 	BoardService service;
+	
+	@Inject
+	ReplyService replyService;
+	
 	//게시판 글 작성 화면
 	@RequestMapping(value="/board/writeView", method=RequestMethod.GET)
 	public void writeView() throws Exception{
@@ -59,6 +67,9 @@ public class BoardController {
 		logger.info("read");
 		model.addAttribute("read", service.read(vo.getBno()));
 		model.addAttribute("scri",scri);
+		
+		List<ReplyVO> replyList = replyService.readReply(vo.getBno());
+		model.addAttribute("replyList",replyList);
 		return "board/readView";
 	}
 	
