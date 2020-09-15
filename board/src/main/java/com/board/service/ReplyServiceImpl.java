@@ -21,4 +21,10 @@ public class ReplyServiceImpl implements ReplyService{
 		return dao.readReply(bno);
 	}
 
+	@Override
+	public void writeReply(ReplyVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.writeReply(vo);
+	}
+
 }

@@ -9,4 +9,9 @@
 		from boardreply where bno=#{bno}
 	</select>
 	
+	<!-- 댓글 작성 -->
+	<insert id="writeReply">
+		insert into boardreply(bno,rno,content,writer) values(#{bno},0,#{content},#{writer})
+	</insert>
+	
 </mapper>
