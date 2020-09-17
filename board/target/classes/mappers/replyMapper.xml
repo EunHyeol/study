@@ -11,7 +11,24 @@
 	
 	<!-- 댓글 작성 -->
 	<insert id="writeReply">
-		insert into boardreply(bno,rno,content,writer) values(#{bno},0,#{content},#{writer})
+		insert into boardreply(bno,rno,content,writer) values(#{bno},(SELECT * FROM (SELECT MAX(rno)+1 FROM boardreply) NEXT),#{content},#{writer})
 	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateReply" parameterType="com.board.vo.ReplyVO">
+		update boardreply set content = #{content}
+		where rno=#{rno}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="com.board.vo.ReplyVO">
+		delete from boardreply
+		where rno=#{rno}
+	</delete>
+	
+	<!-- 선택된 댓글 조회 -->
+	<select id="selectReply" resultType="com.board.vo.ReplyVO">
+		select * from boardreply where rno=#{rno}
+	</select>
 	
 </mapper>
