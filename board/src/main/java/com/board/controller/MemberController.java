@@ -12,7 +12,7 @@ import com.board.service.MemberService;
 import com.board.vo.MemberVO;
 
 @Controller
-@RequestMapping("/meber/*")
+@RequestMapping("/member/*")
 public class MemberController {
 	private static final Logger logger= LoggerFactory.getLogger(MemberController.class);
 	
