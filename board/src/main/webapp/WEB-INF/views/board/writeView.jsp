@@ -58,6 +58,9 @@
 								<button class="write_btn" type="button">작성</button>
 							</td>
 						</tr>
+						<c:if test="${member.userid==null}">
+							<p>로그인 후에 작성하실 수 있습니다.</p>
+						</c:if>
 					</tbody>
 				</table>
 			</form>
