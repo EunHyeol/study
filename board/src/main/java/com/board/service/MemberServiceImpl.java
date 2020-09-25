@@ -35,6 +35,13 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		dao.memberDelete(vo);
 	}
+	//패스워드 체크
+	@Override
+	public int passChk(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		int result = dao.passChk(vo);
+		return result;
+	}
 	
 	
 }

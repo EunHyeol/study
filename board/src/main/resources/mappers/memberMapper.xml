@@ -26,4 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from boardmember
 		where userid=#{userid} and userpass=#{userpass}
 	</delete>
+	
+	<!-- 패스워드 체크 -->
+	<select id="passChk" resultType="int">
+		select count(*) from boardmember
+		where userid=#{userid} and userpass=#{userpass}
+	</select>
 </mapper>

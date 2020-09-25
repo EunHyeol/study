@@ -35,5 +35,12 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		sql.delete("memberMapper.memberDelete",vo);
 	}
+	//패스워드 체크
+	@Override
+	public int passChk(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		int result = sql.selectOne("memberMapper.passChk", vo);
+		return result;
+	}
 
 }
