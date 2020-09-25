@@ -72,4 +72,23 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	//회원탈퇴 get
+	@RequestMapping(value="/memberDeleteView", method=RequestMethod.GET)
+	public String memberDeleteView() throws Exception{
+		return "member/memberDeleteView";
+	}
+	//회원탈퇴 post
+	@RequestMapping(value="/memberDelete", method=RequestMethod.POST)
+	public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		String sessionPass = member.getUserpass();
+		String voPass = vo.getUserpass();
+		if(!(sessionPass.contentEquals(voPass))) {
+			rttr.addFlashAttribute("msg", false);
+			return "redirect:/member/memberDeleteView";
+		}
+		service.memberDelete(vo);
+		session.invalidate();
+		return "redirect:/";
+	}
 }

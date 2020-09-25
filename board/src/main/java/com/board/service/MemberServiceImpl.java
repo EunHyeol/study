@@ -23,10 +23,17 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return dao.login(vo);
 	}
+	//회원정보 수정
 	@Override
 	public void memberUpdate(MemberVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		dao.memberUpdate(vo);
+	}
+	//회원탈퇴
+	@Override
+	public void memberDelete(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.memberDelete(vo);
 	}
 	
 	

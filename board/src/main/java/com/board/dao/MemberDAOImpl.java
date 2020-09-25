@@ -23,10 +23,17 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		return sql.selectOne("memberMapper.login", vo);
 	}
+	//회원정보 수정
 	@Override
 	public void memberUpdate(MemberVO vo) throws Exception {
 		// TODO Auto-generated method stub
 		sql.update("memberMapper.memberUpdate", vo);
+	}
+	//회원탈퇴
+	@Override
+	public void memberDelete(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		sql.delete("memberMapper.memberDelete",vo);
 	}
 
 }

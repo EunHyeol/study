@@ -20,4 +20,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update boardmember set userpass=#{userpass}, username=#{username}
 		where userid=#{userid}
 	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="memberDelete">
+		delete from boardmember
+		where userid=#{userid} and userpass=#{userpass}
+	</delete>
 </mapper>
