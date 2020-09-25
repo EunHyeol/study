@@ -11,7 +11,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 로그인 -->
 	<select id="login" resultType="com.board.vo.MemberVO">
-		select userid,userpass from boardmember
+		select userid,userpass, username from boardmember
 		where userid=#{userid} and userpass=#{userpass}
 	</select>
+	
+	<!--  회원정보 수정 -->
+	<update id="memberUpdate">
+		update boardmember set userpass=#{userpass}, username=#{username}
+		where userid=#{userid}
+	</update>
 </mapper>

@@ -23,5 +23,10 @@ public class MemberDAOImpl implements MemberDAO{
 		// TODO Auto-generated method stub
 		return sql.selectOne("memberMapper.login", vo);
 	}
+	@Override
+	public void memberUpdate(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		sql.update("memberMapper.memberUpdate", vo);
+	}
 
 }

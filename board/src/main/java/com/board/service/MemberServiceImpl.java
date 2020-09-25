@@ -23,6 +23,11 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		return dao.login(vo);
 	}
+	@Override
+	public void memberUpdate(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		dao.memberUpdate(vo);
+	}
 	
 	
 }

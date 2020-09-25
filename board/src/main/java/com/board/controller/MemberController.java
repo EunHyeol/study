@@ -60,4 +60,16 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
+	//회원정보 수정
+	@RequestMapping(value="/memberUpdateView", method=RequestMethod.GET)
+	public String registerUpdateView() throws Exception{
+		return "member/memberUpdateView";
+	}
+	//회원정보 갱신
+	@RequestMapping(value="/memberUpdate", method=RequestMethod.POST)
+	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception{
+		service.memberUpdate(vo);
+		session.invalidate();
+		return "redirect:/";
+	}
 }
