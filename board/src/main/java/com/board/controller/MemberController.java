@@ -33,7 +33,16 @@ public class MemberController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String postRegister(MemberVO vo) throws Exception {
 		logger.info("post register");
-		service.register(vo);
+		int result = service.idChk(vo);
+		try {
+			if(result == 1) {
+				return "/member/register";
+			}else if(result == 0) {
+				service.register(vo);
+			}
+		}catch(Exception e) {
+			throw new RuntimeException();
+		}
 		return "redirect:/";
 	}
 	//로그인
@@ -84,7 +93,7 @@ public class MemberController {
 		MemberVO member = (MemberVO) session.getAttribute("member");
 		String sessionPass = member.getUserpass();
 		String voPass = vo.getUserpass();
-		if(!(sessionPass.contentEquals(voPass))) {
+		if(!(sessionPass.equals(voPass))) {
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/member/memberDeleteView";
 		}
@@ -97,6 +106,13 @@ public class MemberController {
 	@RequestMapping(value="/passChk", method=RequestMethod.POST)
 	public int passChk(MemberVO vo) throws Exception{
 		int result = service.passChk(vo);
+		return result;
+	}
+	//아이디 중복체크
+	@ResponseBody
+	@RequestMapping(value="/idChk", method=RequestMethod.POST)
+	public int idChk(MemberVO vo) throws Exception{
+		int result =  service.idChk(vo);
 		return result;
 	}
 }

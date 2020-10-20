@@ -42,5 +42,11 @@ public class MemberDAOImpl implements MemberDAO{
 		int result = sql.selectOne("memberMapper.passChk", vo);
 		return result;
 	}
+	@Override
+	public int idChk(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		int result = sql.selectOne("memberMapper.idChk",vo);
+		return result;
+	}
 
 }

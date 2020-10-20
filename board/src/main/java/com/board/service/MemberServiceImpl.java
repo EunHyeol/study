@@ -42,6 +42,13 @@ public class MemberServiceImpl implements MemberService{
 		int result = dao.passChk(vo);
 		return result;
 	}
+	//아이디 중복체크
+	@Override
+	public int idChk(MemberVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		int result = dao.idChk(vo);
+		return result;
+	}
 	
 	
 }
