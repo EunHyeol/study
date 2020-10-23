@@ -46,7 +46,7 @@ public class MemberController {
 		}
 		return "redirect:/";
 	}
-	//로그인
+	//로그인 s
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(MemberVO vo,  HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		logger.info("post login");
