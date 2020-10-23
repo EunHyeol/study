@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,7 +48,7 @@ public class MemberController {
 	}
 	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+	public String login(MemberVO vo,  HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		logger.info("post login");
 		
 		HttpSession session = req.getSession();
@@ -70,12 +71,12 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
-	//회원정보 수정
+	//회원정보 수정 get
 	@RequestMapping(value="/memberUpdateView", method=RequestMethod.GET)
 	public String registerUpdateView() throws Exception{
 		return "member/memberUpdateView";
 	}
-	//회원정보 갱신
+	//회원정보 수정 post
 	@RequestMapping(value="/memberUpdate", method=RequestMethod.POST)
 	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception{
 		service.memberUpdate(vo);
